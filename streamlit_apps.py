@@ -27,8 +27,8 @@ else:
   selected_locality = None
   st.warning("⚠️ No locality options found in your model columns.")
 # 2. Other numerical fields
-#floor = st.number_input("Floor", min_value=0.0, max_value=180.0)
-#lift = st.number_input("Lift", min_value=0.0, max_value=200.0)
+# floor = st.number_input("Floor", min_value=0.0, max_value=180.0)
+# lift = st.number_input("Lift", min_value=0.0, max_value=200.0)
 
 # ---- Floor Selectbox ----
 floor_options = list(range(0, 21))  # Floor values from 0 to 20
@@ -45,8 +45,8 @@ parking_choice = st.selectbox("Parking Description", list(parking_options.keys()
 parkingDesc = parking_options[parking_choice]
 
 # 4. BHK
-#bhk = st.selectbox("BHK", ['1Rk', '1BHK','2BHK', '3BHK'])
-#bhk = st.number_input("BHK", min_value=0.0, max_value=10.0)
+# bhk = st.selectbox("BHK", ['1Rk', '1BHK','2BHK', '3BHK'])
+# bhk = st.number_input("BHK", min_value=0.0, max_value=10.0)
 # ---- BHK Selectbox ----
 bhk_options = {
     "1 RK": 0.5,  # or 1 if you prefer
