@@ -5,7 +5,8 @@ import pandas as pd
 
 # Load model and dummy column list
 model = joblib.load("best_LinearRegression_model.pkl")
-dummy_columns = joblib.load("dummy_columns.pkl")  # Save this during training
+model_columns = joblib.load("model_columns.pkl")
+dummy_columns = joblib.load("dummy_columns.pkl") 
 model_columns = dummy_columns
 #st.write("All dummy columns loaded:", dummy_columns)
 
