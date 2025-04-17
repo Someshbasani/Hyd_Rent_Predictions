@@ -60,8 +60,8 @@ if st.button("Submit"):
     input_df = pd.DataFrame([input_dict])
     input_df = input_df.reindex(columns=model_columns1, fill_value=0)
 
-    st.write("Input columns:", input_df.columns.tolist())
-    st.write("Model expects:", model_columns1)
+   # st.write("Input columns:", input_df.columns.tolist())
+   # st.write("Model expects:", model_columns1)
 
     # Predict
     prediction = model.predict(input_df)[0]
