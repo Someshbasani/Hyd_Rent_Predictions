@@ -5,7 +5,8 @@ import pandas as pd
 
 # Load model and dummy column list
 model = joblib.load("best_LinearRegression_model.pkl")
-model_columns = joblib.load("model_columns.pkl")
+model_columns1 = joblib.load("model_columns.pkl")
+
 dummy_columns = joblib.load("dummy_columns.pkl") 
 model_columns = dummy_columns
 #st.write("All dummy columns loaded:", dummy_columns)
@@ -43,7 +44,7 @@ if st.button("Submit"):
         st.error("Locality selection is missing. Cannot proceed.")
     else:
         # Create input dictionary
-        input_dict = dict.fromkeys(model_columns, 0)
+        input_dict = dict.fromkeys(model_columns1, 0)
     # Set the matching locality column to 1
     locality_col = f"locality_{selected_locality}"
     if locality_col in input_dict:
@@ -57,7 +58,11 @@ if st.button("Submit"):
 
     # Convert to DataFrame
     input_df = pd.DataFrame([input_dict])
-    input_df = input_df.reindex(columns=model_columns, fill_value=0)
+    input_df = input_df.reindex(columns=model_columns1, fill_value=0)
+
+    st.write("Input columns:", input_df.columns.tolist())
+    st.write("Model expects:", model_columns1)
+
     # Predict
     prediction = model.predict(input_df)[0]
     st.subheader("🏷️ Predicted Rent:")
