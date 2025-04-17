@@ -47,7 +47,7 @@ if st.button("Submit"):
 
     # Convert to DataFrame
     input_df = pd.DataFrame([input_dict])
-
+    input_df = input_df.reindex(columns=model_columns, fill_value=0)
     # Predict
     prediction = model.predict(input_df)[0]
     st.subheader("🏷️ Predicted Rent:")
