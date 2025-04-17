@@ -22,7 +22,8 @@ locality_list = sorted([col.replace("locality_", "") for col in dummy_columns if
 if locality_list:
     selected_locality = st.selectbox("Select Locality", locality_list)
 else:
-    st.error("⚠️ No locality columns found in dummy_columns.pkl")
+  selected_locality = None
+    st.warning("⚠️ No locality options found in your model columns.")
 # 2. Other numerical fields
 floor = st.number_input("Floor", min_value=0.0, max_value=180.0)
 lift = st.number_input("Lift", min_value=0.0, max_value=200.0)
