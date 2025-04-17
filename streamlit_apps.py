@@ -27,11 +27,13 @@ else:
   selected_locality = None
   st.warning("⚠️ No locality options found in your model columns.")
 # 2. Other numerical fields
+floor = st.number_input("Floor", min_value=0.0, max_value=180.0)
+lift = st.number_input("Lift", min_value=0.0, max_value=200.0)
 
-floor = st.selectbox("Floor", ['1','2','3','4','5','6','7','8'])
-lift_options = {'Yes': 1 ,'No': 0}
-lift_choice = st.selectbox("lift", list(lift_options.keys()))
-lift = lift_options[lift_choice]
+#floor = st.selectbox("Floor", ['1','2','3','4','5','6','7','8'])
+#lift_options = {'Yes': 1 ,'No': 0}
+#lift_choice = st.selectbox("lift", list(lift_options.keys()))
+#lift = lift_options[lift_choice]
 #lift = st.number_input("Lift", min_value=0)
 
 # 3. Parking Type selectbox
@@ -40,7 +42,9 @@ parking_choice = st.selectbox("Parking Description", list(parking_options.keys()
 parkingDesc = parking_options[parking_choice]
 
 # 4. BHK
-bhk = st.selectbox("BHK", ['1Rk', '1BHK','2BHK', '3BHK'])
+#bhk = st.selectbox("BHK", ['1Rk', '1BHK','2BHK', '3BHK'])
+bhk = st.number_input("BHK", min_value=0.0, max_value=10.0)
+
 
 # ---- Prediction ----
 if st.button("Submit"):
@@ -63,7 +67,7 @@ if st.button("Submit"):
     # Convert to DataFrame
     input_df = pd.DataFrame([input_dict])
     input_df = input_df.reindex(columns=model_columns1, fill_value=0)
-    input_df = input_df.apply(pd.to_numeric, errors='coerce')
+   # input_df = input_df.apply(pd.to_numeric, errors='coerce')
    # st.write("Input columns:", input_df.columns.tolist())
    # st.write("Model expects:", model_columns1)
 
