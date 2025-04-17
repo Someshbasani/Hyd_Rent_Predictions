@@ -7,7 +7,7 @@ import pandas as pd
 model = joblib.load("best_LinearRegression_model.pkl")
 dummy_columns = joblib.load("dummy_columns.pkl")  # Save this during training
 model_columns = dummy_columns
-st.write("All dummy columns loaded:", dummy_columns)
+#st.write("All dummy columns loaded:", dummy_columns)
 
 
 st.set_page_config(page_title="Hyd_rent Predictions", layout="centered")
