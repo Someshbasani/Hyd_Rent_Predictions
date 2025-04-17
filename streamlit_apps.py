@@ -63,7 +63,7 @@ if st.button("Submit"):
     # Convert to DataFrame
     input_df = pd.DataFrame([input_dict])
     input_df = input_df.reindex(columns=model_columns1, fill_value=0)
-
+    input_df = input_df.apply(pd.to_numeric, errors='coerce')
    # st.write("Input columns:", input_df.columns.tolist())
    # st.write("Model expects:", model_columns1)
 
